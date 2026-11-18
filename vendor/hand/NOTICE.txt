@@ -1,0 +1,9 @@
+MediaPipe Tasks Vision JavaScript and WebAssembly runtime 0.10.21.
+Copyright Google LLC. Distributed under the Apache License 2.0, included as LICENSE.
+Project: https://github.com/google-ai-edge/mediapipe
+Package: https://www.npmjs.com/package/@mediapipe/tasks-vision/v/0.10.21
+
+MediaPipe Hand Landmarker, float16 model bundle, version 1, from Google.
+https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker
+https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task
+SHA256: fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1

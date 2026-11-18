@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="herbarium">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f8f4ea"><title>浮音图鉴 · Airborne Atlas</title>
+<meta name="description" content="用前置镜头隔空弹奏，让音符穿过晨雾和风雪，在八座微缩世界里着陆。">
+<link rel="icon" href="./mark.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./instruments.css">
+</head>
+<body>
+<main class="studio">
+  <header class="console">
+    <div class="toolbar">
+      <div class="brand" aria-label="浮音图鉴 Airborne Atlas"><img src="./mark.svg" alt=""><h1>浮音图鉴</h1></div>
+      <button id="mobile-theme" class="scene-select"><img id="selected-art" alt="" src="./art/landmark-herbarium.png"><span><strong id="mobile-theme-name">雾野花房</strong><small id="instrument-name">钢琴</small></span><span data-icon="down"></span></button>
+      <button id="climate" class="weather-pill" title="天气与时段" aria-label="天气与时段"><span id="climate-icon"></span><span id="climate-label"></span></button>
+      <div class="head-actions">
+        <button id="library" class="quiet-btn" title="曲目与谱册" aria-label="曲目与谱册"><span data-icon="book"></span><span class="wide-label">曲目</span></button>
+        <button id="settings" class="icon-btn" title="演奏设置" aria-label="演奏设置" data-icon="sliders"></button>
+        <button id="camera" class="air-btn" aria-label="开启隔空演奏"><span data-icon="hand"></span><span id="camera-label">隔空演奏</span></button>
+      </div>
+    </div>
+    <div id="instrument" aria-label="可弹奏乐器"></div>
+  </header>
+  <section class="stage" aria-label="立体生长乐谱">
+    <canvas id="score" aria-label="生长乐谱，上下拖动浏览，左右拖动调整视角，双指缩放"></canvas>
+    <div class="stage-top">
+      <button id="journey" class="journey-button" title="开启无尽漫游，可跟随合奏"><span data-icon="journey"></span><span id="journey-label">无尽漫游</span></button>
+      <div class="daytools" role="group" aria-label="切换昼夜"><button id="day-mode" aria-label="切换到白天"><span data-icon="sun"></span><span>白天</span></button><button id="night-mode" aria-label="切换到夜晚"><span data-icon="moon"></span><span>夜晚</span></button></div>
+      <button id="journal" class="journal-button" title="采风手记与地标乐句" aria-label="采风手记"><span data-icon="seed"></span><span>采风手记</span></button>
+    </div>
+    <div id="hand-guide" hidden><div id="camera-view"><div class="camera-feed"><video id="video" muted playsinline></video><canvas id="hand-overlay"></canvas></div><p id="cam-state" role="status"></p><p class="rail-tip">横移选音，捏合奏响。顶栏停半秒再捏合，可控制回放、声景、天气、昼夜和换景。</p></div></div>
+    <div class="stage-foot"><button class="locate" id="home" title="回到生长位置"><span data-icon="focus"></span>回到生长位置</button><div class="viewtools"><button id="zoom-out" class="icon-btn" aria-label="缩小谱面" data-icon="minus"></button><button id="zoom-in" class="icon-btn" aria-label="放大谱面" data-icon="plus"></button></div></div>
+    <output id="toast" aria-live="polite"></output>
+  </section>
+  <footer class="transport">
+    <div class="transport-left"><button id="new" class="action" title="新建空白谱页"><span data-icon="new"></span><span>新谱</span></button><button id="undo" class="action secondary" aria-label="撤销" title="撤销上次操作"><span data-icon="undo"></span><span>撤销</span></button></div>
+    <div class="transport-center"><button id="play" class="play-btn" aria-label="播放乐谱" data-icon="play"></button><b id="play-state">回放</b></div>
+    <div class="transport-right"><div class="score-meta"><b id="score-name">晨雾来信</b><span id="note-count"></span></div><button id="save" class="action" title="保存乐谱"><span data-icon="save"></span><span>保存</span></button></div>
+    <div class="time-track"><input type="range" min="0" max="1000" value="0" id="position" aria-label="回放进度"><span id="clock">0:00 / 0:00</span></div>
+  </footer>
+</main>
+<canvas id="flight-layer" aria-hidden="true"></canvas>
+<dialog id="panel"><div class="dialog-head"><h2 id="panel-title"></h2><button id="close" class="icon-btn" data-icon="close" aria-label="关闭"></button></div><div id="panel-body"></div></dialog>
+<input id="file-open" type="file" accept=".json,application/json" hidden>
+<script type="module" src="./app.js"></script>
+</body></html>
